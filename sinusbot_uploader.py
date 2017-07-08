@@ -80,8 +80,7 @@ class Sinusbot:
 
             except:
                 conn.close()
-                print
-                'Could not get token: %s' % (response)
+                print('Could not get token: %s' % (response))
                 return False
 
 
@@ -99,8 +98,7 @@ class Sinusbot:
             bytes = f.read()
             f.close()
         except:
-            print
-            'Could not read -> ' + LocalPath
+            print('Could not read -> ' + LocalPath)
             return False
         if self.ssl:
             conn = httplib.HTTPSConnection(self.url, self.port)
@@ -136,21 +134,17 @@ def uploadHelper(directory, bot, recurse):
             fileExtension = entryTruePath.split('.')[-1]
             if (fileExtension in bot.extensions):
                 if bot.Upload(entryTruePath):
-                    print
-                    'Success uploaded: ' + entryTruePath
+                    print('Success uploaded: ' + entryTruePath)
                 else:
-                    print
-                    'Error while uploading: ' + entryTruePath
+                    print('Error while uploading: ' + entryTruePath)
             else:
-                print
-                'File type not supported: ' + entryTruePath
+                print('File type not supported: ' + entryTruePath)
         elif os.path.isdir(entryTruePath) and recurse:
             uploadHelper(entryTruePath, bot, recurse)
 
 
 if len(sys.argv) < 6:
-    print
-    'Usage: ./sinusbot_uploader.py 123.124.125.1 port username password LOCAL_DIRECTORY SSL(optional) -R (Recursive)'
+    print('Usage: ./sinusbot_uploader.py 123.124.125.1 port username password LOCAL_DIRECTORY SSL(optional) -R (Recursive)')
     sys.exit(1)
 else:
     recursive = False
@@ -176,25 +170,20 @@ else:
         if sys.argv[8] == '-R':
             recursive = True
     if not os.path.isdir(sys.argv[5]):
-        print
-        'LOCAL_DIRECTORY must be a valid directory!'
+        print('LOCAL_DIRECTORY must be a valid directory!')
         sys.exit(1)
 
     bot = Sinusbot(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], folder, SSL)
     if bot.Auth():
-        print
-        'Success Authenticated!'
+        print('Success Authenticated!')
 
         dir = os.path.abspath(sys.argv[5])
         files = os.listdir(dir)
 
         uploadHelper(dir, bot, recursive)
 
-        print
-        'Completed -> Uploaded %d files with %d errors.' % (bot.success_count, bot.error_count)
+        print('Completed -> Uploaded %d files with %d errors.' % (bot.success_count, bot.error_count))
 
     else:
-        print
-        'Error on Authentication!'
+        print('Error on Authentication!')
         sys.exit(1)
-
