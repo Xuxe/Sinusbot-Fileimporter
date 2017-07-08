@@ -157,6 +157,10 @@ else:
     folder = False
     SSL = False
     if len(sys.argv) >= 7:
+        if sys.argv[6] == 'SSL':
+            SSL = True
+        if sys.argv[6] == '-R':
+            recursive = True
         if sys.argv[6] != '-R' and sys.argv[6] != 'SSL' and sys.argv[6] is not None:
             folder = sys.argv[6]
     if len(sys.argv) >= 8:
@@ -193,3 +197,4 @@ else:
         print
         'Error on Authentication!'
         sys.exit(1)
+
