@@ -21,7 +21,7 @@ To get this, when viewing a folder i.e. http://127.0.0.1:8087/play/list/6167f60e
 Examples:
 - **Basic ->** ./sinusbot_uploader.py 127.0.0.1 8087 admin foober /myfolder 6167f60e-acd0-4e84-b5c0-d2e102d951c3
 - **Recursive ->** ./sinusbot_uploader.py 127.0.0.1 8087 admin foobar /myfolder 6167f60e-acd0-4e84-b5c0-d2e102d951c3 -R
-- **Recurisve + SSL ->** ./sinusbot_uploader.py 127.0.0.1 8087 admin foobar /myfolder 6167f60e-acd0-4e84-b5c0-d2e102d951c3 -R SSL
+- **Recursive + SSL ->** ./sinusbot_uploader.py 127.0.0.1 8087 admin foobar /myfolder 6167f60e-acd0-4e84-b5c0-d2e102d951c3 -R SSL
 - **SSL ->** ./sinusbot_uploader.py 127.0.0.1 8087 admin foobar /myfolder 6167f60e-acd0-4e84-b5c0-d2e102d951c3 SSL
 - **SSL + Recursive ->** ./sinusbot_uploader.py 127.0.0.1 8087 admin foobar /myfolder 6167f60e-acd0-4e84-b5c0-d2e102d951c3 SSL -R
 
